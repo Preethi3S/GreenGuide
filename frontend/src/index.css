@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-light-bg text-light-text font-sans;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #0f3828; /* secondary */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f97316; /* primary */
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ea580c; /* primary-hover */
+}
+
+/* Butterfly Animation */
+@keyframes fly-1 {
+  0% { transform: translate(0, 0) rotate(0deg) scale(0); opacity: 0; }
+  20% { opacity: 1; transform: translate(20px, -30px) rotate(15deg) scale(1); }
+  40% { transform: translate(40px, -10px) rotate(0deg) scale(1); }
+  60% { transform: translate(60px, -40px) rotate(15deg) scale(1); }
+  100% { transform: translate(100px, -100px) rotate(45deg) scale(0); opacity: 0; }
+}
+
+@keyframes fly-2 {
+  0% { transform: translate(0, 0) rotate(0deg) scale(0); opacity: 0; }
+  20% { opacity: 1; transform: translate(-20px, -35px) rotate(-15deg) scale(1); }
+  40% { transform: translate(-40px, -15px) rotate(0deg) scale(1); }
+  60% { transform: translate(-60px, -45px) rotate(-15deg) scale(1); }
+  100% { transform: translate(-100px, -120px) rotate(-45deg) scale(0); opacity: 0; }
+}
+
+.butterfly {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: var(--color-primary, #f97316);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 50;
+}
+
+.butterfly::before, .butterfly::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  background: inherit;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+.butterfly::before { left: -6px; transform: scale(0.8); }
+.butterfly::after { right: -6px; transform: scale(0.8); }
+
+.group:hover .butterfly-1 {
+  animation: fly-1 2s ease-out infinite;
+}
+
+.group:hover .butterfly-2 {
+  animation: fly-2 2.5s ease-out infinite;
+  animation-delay: 0.2s;
+}

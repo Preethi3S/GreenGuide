@@ -1,0 +1,6 @@
+node_modules/
+aiservice/
+.env
+.git
+.gitignore
+.DS_Store

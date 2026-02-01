@@ -1,0 +1,13 @@
+*
+!app.py
+!requirements.txt
+!models/
+!scripts/
+!uploads/
+!Dockerfile
+datasets_split/
+.310venv/
+__pycache__/
+*.pyc
+.env
+.DS_Store
