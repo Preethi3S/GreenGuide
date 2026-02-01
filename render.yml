@@ -39,9 +39,6 @@ services:
       - key: COHERE_API_KEY
         sync: false
       - key: AI_SERVICE_URL
-        fromService:
-          type: web
-          name: greenguide-aiservice
-          property: url
+        value: http://greenguide-aiservice:5001
       - key: CLIENT_URL
         value: https://greenguide-frontend.vercel.app # URL you get from Vercel later
