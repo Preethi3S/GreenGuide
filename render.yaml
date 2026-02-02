@@ -1,16 +1,5 @@
 services:
-  # 1. AI Service (Python + TensorFlow)
-  - type: web
-    name: greenguide-aiservice
-    env: docker
-    dockerContext: backend/aiservice
-    dockerfilePath: backend/aiservice/Dockerfile
-    plan: free
-    envVars:
-      - key: PORT
-        value: 5001
-
-  # 2. Node Backend
+  # Node Backend only
   - type: web
     name: greenguide-backend
     env: docker
@@ -39,6 +28,6 @@ services:
       - key: COHERE_API_KEY
         sync: false
       - key: AI_SERVICE_URL
-        value: http://greenguide-aiservice:5001
+        value: "" # AI Service skipped
       - key: CLIENT_URL
         value: https://greenguide-frontend.vercel.app # URL you get from Vercel later
